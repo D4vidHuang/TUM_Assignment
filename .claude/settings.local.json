@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose:*)",
+      "Bash(open -a Docker)",
+      "Bash(docker info:*)",
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s -X POST http://localhost:8000/api/auth/login -H \"Content-Type: application/json\" -d '{\"\"\"\"username\"\"\"\":\"\"\"\"admin\"\"\"\",\"\"\"\"password\"\"\"\":\"\"\"\"admin123\"\"\"\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s http://localhost:3000/api/health)",
+      "Bash(curl -s \"http://localhost:8000/api/auth/login\" -H \"Content-Type: application/json\" -d '{\"\"\"\"username\"\"\"\":\"\"\"\"dr.smith\"\"\"\",\"\"\"\"password\"\"\"\":\"\"\"\"password\"\"\"\"}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); token=d[''''access_token'''']; print\\(''''Got token''''\\); import urllib.request,urllib.request; req=urllib.request.Request\\(''''http://localhost:8000/api/imaging/'''',headers={''''Authorization'''':f''''Bearer {token}''''}\\); resp=urllib.request.urlopen\\(req\\); print\\(resp.read\\(\\).decode\\(\\)[:500]\\)\")"
+    ]
+  }
+}

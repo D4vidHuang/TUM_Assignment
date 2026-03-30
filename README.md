@@ -5,7 +5,8 @@
 ```
 docker compose up
 ```
-Then open **http://localhost:3000**. That's it.
+
+Then open **<http://localhost:3000>**. That's it.
 
 ---
 
@@ -27,12 +28,14 @@ Then open **http://localhost:3000**. That's it.
 ## Quick Start
 
 ### Prerequisites
+
 - Docker and Docker Compose installed
 - Port 3000 (frontend) and 8000 (backend) available
 
 ### Launch
+
 ```bash
-git clone <repo-url>
+git clone <https://github.com/D4vidHuang/TUM_Assignment.git>
 cd TUM_Assignment
 docker compose up
 ```
@@ -40,6 +43,7 @@ docker compose up
 First startup takes ~30 seconds (building images, initializing database, seeding demo data). Subsequent starts are instant.
 
 ### What happens on first launch
+
 ```
 ┌─────────────────────────────────────────────────────┐
 │  docker compose up                                  │
@@ -58,6 +62,7 @@ First startup takes ~30 seconds (building images, initializing database, seeding
 ```
 
 ### Reset everything
+
 ```bash
 docker compose down -v    # removes database volume
 docker compose up         # fresh start with re-seeded data
@@ -386,6 +391,7 @@ Navigate to **QC** in the navbar:
 ```
 
 **5 anomaly detectors**:
+
 1. **Speed**: Evaluations completed in <10 seconds
 2. **Distribution**: >80% of ratings are the same score
 3. **Bias**: Systematic deviation from group average
@@ -395,6 +401,7 @@ Navigate to **QC** in the navbar:
 ### 12. Data Export (Admin only)
 
 From the **Admin** dashboard, download:
+
 - **Evaluations** → CSV or JSON
 - **Pairwise Comparisons** → CSV or JSON
 - **Annotations** → JSON (with vector coordinate data)
@@ -402,6 +409,7 @@ From the **Admin** dashboard, download:
 ### 13. Dark Mode
 
 Toggle with ☀️/🌙 in the navbar. Designed for radiology reading rooms:
+
 - Pure black background (`#09090b`)
 - White text, blue accents (`#3b82f6`)
 - Preference saved in localStorage
@@ -595,12 +603,14 @@ heatmaps/
 ## API Reference
 
 ### Authentication
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/auth/login` | Login → JWT token |
 | GET | `/api/auth/me` | Current user info |
 
 ### Cases & Evaluation
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/cases/` | List cases (with per-user eval status) |
@@ -610,6 +620,7 @@ heatmaps/
 | POST | `/api/evaluations/{case_id}/pairwise` | Submit comparison |
 
 ### Imaging & MPR
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/imaging/{case}/{series}/slice/{idx}?token=` | Serve slice image |
@@ -619,6 +630,7 @@ heatmaps/
 | GET | `/api/mpr/slice/{case}/{series}/{plane}/{idx}?token=` | Reconstructed slice |
 
 ### Annotations
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/annotations/` | Create annotation |
@@ -626,12 +638,14 @@ heatmaps/
 | POST | `/api/annotations/propagate` | Smart propagation to adjacent slices |
 
 ### Structured Reporting
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/reporting/templates` | All BI-RADS/LI-RADS/Lung-RADS/PI-RADS definitions |
 | POST | `/api/reporting/reports` | Save structured report |
 
 ### Groups & LLM
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET/POST | `/api/groups/` | List/create research groups |
@@ -641,6 +655,7 @@ heatmaps/
 | POST | `/api/llm/assist` | Send multimodal query to group LLM |
 
 ### Collaboration & Conferences
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | WS | `/ws/collab/{case_id}?token=` | Real-time cursor + annotation sync |
@@ -648,6 +663,7 @@ heatmaps/
 | WS | `/ws/conference/{conf_id}?token=` | Join conference (chat, vote, navigate) |
 
 ### Admin & QC
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/admin/stats` | Dashboard statistics |
@@ -661,6 +677,7 @@ heatmaps/
 ### Local Development (without Docker)
 
 **Backend:**
+
 ```bash
 cd backend
 python -m venv .venv && source .venv/bin/activate
@@ -671,6 +688,7 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm install
